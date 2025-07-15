@@ -1,0 +1,12 @@
+/.hugo_build.lock
+/public
+/resources
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*.swn
+*.swx
+*.un~
+*.env

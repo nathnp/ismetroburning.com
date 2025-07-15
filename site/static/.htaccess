@@ -1,0 +1,19 @@
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Block unwanted bots by User-Agent
+RewriteCond %{HTTP_USER_AGENT} "(?i)Bytespider" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)ByteDanceSpider" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)ClaudeBot" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)GPTBot" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)Google-Extended" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)Amazonbot" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)libwww-perl" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)MJ12bot" [OR]
+RewriteCond %{HTTP_USER_AGENT} "(?i)AhrefsBot"
+RewriteRule .* - [F,L]
+
+# Wordpress bot redirects
+RewriteCond %{REQUEST_URI} ^/wp-login\.php$
+RewriteRule ^.*$ https://www.youtube.com/watch?v=xvFZjo5PgG0 [R=301,L]

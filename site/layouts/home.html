@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+{{ $goodWords := site.Data.words.good }}
+{{ $goodShuffled := shuffle $goodWords }}
+{{ $goodRandomWord := index $goodShuffled 0 }}
+
+{{ $badWords := site.Data.words.bad }}
+{{ $badShuffled := shuffle $badWords }}
+{{ $badRandomWord := index $badShuffled 0 }}
+
+{{ $status := site.Data.metro_status }}
+
+{{/* Define desired order */}}
+{{ $ordered := slice "RD" "OR" "BL" "GR" "YL" "SV" }}
+
+{{ $fireCount := 0 }}
+{{ range $ordered }}
+  {{ $info := index $status . }}
+  {{ if $info.fire }}
+	{{ $fireCount = add $fireCount 1 }}
+  {{ end }}
+{{ end }}
+
+<center>
+  {{ if eq $fireCount 0 }}
+	<h2>{{ $goodRandomWord }}</h2>
+  {{ else }}
+	<h2>{{ $badRandomWord }}</h2>
+  {{ end }}
+  
+  <br/>
+  
+  <div class="lines">
+	{{ range $ordered }}
+	  {{ $line := . }}
+	  {{ $info := index $status $line }}
+		{{ if $info.fire }}
+		  <img src="/assets/lines/{{ $line }}-fire.webp"/>
+		{{ else }}
+		  <img src="/assets/lines/{{ $line }}.webp"/>
+		{{ end }}
+	{{ end }}
+  </div>
+  
+  {{ range $ordered }}
+	  {{ $line := . }}
+	  {{ $info := index $status $line }}
+		{{ if $info.fire }}
+		  <p>{{ $line }}: {{ $info.message }}</p>
+		{{ end }}
+	{{ end }}
+	
+	
+  {{ $lastInct := site.Data.lastInct.unixtime }}
+  {{ $now := now.Unix }}
+  {{ $diff := sub $now $lastInct }}
+  {{ $days := div $diff 86400 }}
+  {{ $rounded := math.Floor $days }}
+  
+  <h3>Days since last incident: {{ $rounded }}</h3>
+
+</center>
+
+{{ end }}

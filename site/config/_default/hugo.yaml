@@ -1,0 +1,39 @@
+baseURL: 'https://ismetroburning.com'
+languageCode: en-us
+title: Is Metro Burning
+DisableHugoGeneratorInject: true
+outputs:
+  home:
+    - html
+  section:
+    - html
+disableKinds:
+    - taxonomy
+    - term
+    - sitemap
+mediaTypes:
+  application/rss:
+    isPlainText: true
+    suffixes:
+      - xml
+outputFormats:
+  RSS:
+    mediatype: application/rss
+    baseName: feed
+services:
+  rss:
+    limit: 10
+markup:
+  highlight:
+    style: onedark
+  goldmark:
+    parser:
+      attribute:
+        title: true
+        block: true
+    renderer:
+      unsafe: true
+module:
+  hugoVersion:
+    extended: false
+    min: 0.140.0

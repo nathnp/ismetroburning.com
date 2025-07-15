@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="Nathan">
+<title>{{ site.Title }}</title>
+<link rel="icon" type="image/png" href="/favicon.ico"/>
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="IsMetroBurning">
+{{ partial "opengraph.html" . }}
+{{- if ne hugo.Environment "development" -}}
+{{- end -}}
