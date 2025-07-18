@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/private/IMB
+cd /imb/burning
 
 source ".env"
 
@@ -167,7 +167,7 @@ done
 cp data/metro_status.json data/metro_status_prv.json
 
 # Destination directory
-DEST_DIR="/home/logs/fire"
+DEST_DIR="/imb/logs"
 
 # Timestamp in format: yyyymmdd-hhmm
 TIMESTAMP=$(date +"%Y%m%d-%H%M")
@@ -178,4 +178,4 @@ DEST_FILE="$DEST_DIR/metro_status_$TIMESTAMP.json"
 # Copy the file with the timestamped name
 cp data/metro_status.json "$DEST_FILE"
 
-./hugo -d /home/public
+./hugo -d /imb/public
