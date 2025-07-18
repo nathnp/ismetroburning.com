@@ -10,7 +10,7 @@ OUTPUT_FILE="data/metro_status.json"
 
 LINES=("RD" "OR" "BL" "YL" "GR" "SV")
 
-if [ "$NFSN_SITE_NAME" = "imbprod" ]; then
+if [ "$(cat /etc/hostname)" = "IMB-Prod-1" ]; then
 
 	# Fetch incidents from WMATA
 	RESPONSE=$(curl -s -H "api_key: $API_KEY" "$API_URL")
@@ -85,7 +85,7 @@ for LINE in "${LINES[@]}"; do
 	
 	
 	# Only runs if on prod
-	if [ "$NFSN_SITE_NAME" = "imbprod" ]; then
+	if [ "$(cat /etc/hostname)" = "IMB-Prod-1" ]; then
 	
 		#WMATA Discord
 		curl -H "Content-Type: application/json" \
@@ -133,7 +133,7 @@ for LINE in "${LINES[@]}"; do
 	
 	
 	# Only runs if on prod
-	if [ "$NFSN_SITE_NAME" = "imbprod" ]; then
+	if [ "$(cat /etc/hostname)" = "IMB-Prod-1" ]; then
 	
 		#WMATA Discord
 		curl -H "Content-Type: application/json" \
