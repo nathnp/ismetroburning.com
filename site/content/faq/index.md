@@ -27,7 +27,7 @@ This is a fun little website. You should not rely on it for your safety.
 ## Can I help out
 ___
 
-If you would like to help keep IsMetroBurning up and running, checkout our [donate](/donate) page. If you are unable or unwilling to donate, but would still like to help out. Just spreading the word about this site helps a lot.
+Just spreading the word about this site helps a lot.
 
 ## Can I reach out to you
 ___
