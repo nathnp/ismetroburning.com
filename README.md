@@ -1,6 +1,6 @@
 # IsMetroBurning.com
 
-IMB is a site that Checks if the Washington Metro Rail system os on fire.
+IMB is a site that checks if the Washington Metro Rail system os on fire.
 
 X and BSky support require the following pip packages
 
